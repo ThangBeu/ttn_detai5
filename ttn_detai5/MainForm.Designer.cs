@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnNhanVienQuanLy = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
-            this.txtTuoi = new System.Windows.Forms.Label();
+            this.txtNgaySinh = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.Label();
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.btnPhong = new System.Windows.Forms.Button();
@@ -48,6 +48,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnQuanLiHoaDon = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -59,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -74,12 +77,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 117);
+            this.label3.Location = new System.Drawing.Point(2, 117);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Tuổi";
+            this.label3.Text = "Ngày Sinh";
             // 
             // label4
             // 
@@ -95,7 +98,7 @@
             // btnNhanVienQuanLy
             // 
             this.btnNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNhanVienQuanLy.Location = new System.Drawing.Point(71, 250);
+            this.btnNhanVienQuanLy.Location = new System.Drawing.Point(73, 254);
             this.btnNhanVienQuanLy.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhanVienQuanLy.Name = "btnNhanVienQuanLy";
             this.btnNhanVienQuanLy.Size = new System.Drawing.Size(185, 48);
@@ -106,7 +109,8 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(74, 175);
+            this.btnHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHoaDon.Location = new System.Drawing.Point(74, 194);
             this.btnHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(185, 48);
@@ -115,16 +119,16 @@
             this.btnHoaDon.UseVisualStyleBackColor = true;
             this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
             // 
-            // txtTuoi
+            // txtNgaySinh
             // 
-            this.txtTuoi.AutoSize = true;
-            this.txtTuoi.ForeColor = System.Drawing.Color.Green;
-            this.txtTuoi.Location = new System.Drawing.Point(92, 117);
-            this.txtTuoi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtTuoi.Name = "txtTuoi";
-            this.txtTuoi.Size = new System.Drawing.Size(38, 17);
-            this.txtTuoi.TabIndex = 8;
-            this.txtTuoi.Text = "......";
+            this.txtNgaySinh.AutoSize = true;
+            this.txtNgaySinh.ForeColor = System.Drawing.Color.Green;
+            this.txtNgaySinh.Location = new System.Drawing.Point(92, 117);
+            this.txtNgaySinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtNgaySinh.Name = "txtNgaySinh";
+            this.txtNgaySinh.Size = new System.Drawing.Size(38, 17);
+            this.txtNgaySinh.TabIndex = 8;
+            this.txtNgaySinh.Text = "......";
             // 
             // txtHoTen
             // 
@@ -140,7 +144,7 @@
             // btnKhachHang
             // 
             this.btnKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnKhachHang.Location = new System.Drawing.Point(74, 100);
+            this.btnKhachHang.Location = new System.Drawing.Point(71, 84);
             this.btnKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(185, 48);
@@ -175,7 +179,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(9, 175);
+            this.pictureBox4.Location = new System.Drawing.Point(9, 194);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(55, 48);
@@ -193,6 +197,7 @@
             this.btnLogOut.TabIndex = 9;
             this.btnLogOut.Text = "LOG OUT!!";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // txtSoDienThoai
             // 
@@ -208,7 +213,7 @@
             // txtViTri
             // 
             this.txtViTri.AutoSize = true;
-            this.txtViTri.ForeColor = System.Drawing.Color.Red;
+            this.txtViTri.ForeColor = System.Drawing.Color.Black;
             this.txtViTri.Location = new System.Drawing.Point(92, 40);
             this.txtViTri.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtViTri.Name = "txtViTri";
@@ -219,7 +224,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 100);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 84);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(55, 48);
@@ -245,7 +250,7 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtSoDienThoai);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.txtTuoi);
+            this.groupBox3.Controls.Add(this.txtNgaySinh);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtHoTen);
             this.groupBox3.Controls.Add(this.label4);
@@ -272,6 +277,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.btnQuanLiHoaDon);
             this.groupBox1.Controls.Add(this.btnNhanVienQuanLy);
             this.groupBox1.Controls.Add(this.btnHoaDon);
             this.groupBox1.Controls.Add(this.btnKhachHang);
@@ -289,6 +296,29 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức Năng";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(8, 138);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(55, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnQuanLiHoaDon
+            // 
+            this.btnQuanLiHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnQuanLiHoaDon.Location = new System.Drawing.Point(71, 140);
+            this.btnQuanLiHoaDon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuanLiHoaDon.Name = "btnQuanLiHoaDon";
+            this.btnQuanLiHoaDon.Size = new System.Drawing.Size(185, 48);
+            this.btnQuanLiHoaDon.TabIndex = 2;
+            this.btnQuanLiHoaDon.Text = "Quản Lí Hóa Đơn";
+            this.btnQuanLiHoaDon.UseVisualStyleBackColor = true;
+            this.btnQuanLiHoaDon.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -357,6 +387,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.init);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -364,6 +395,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,7 +407,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnNhanVienQuanLy;
         private System.Windows.Forms.Button btnHoaDon;
-        private System.Windows.Forms.Label txtTuoi;
+        private System.Windows.Forms.Label txtNgaySinh;
         private System.Windows.Forms.Label txtHoTen;
         private System.Windows.Forms.Button btnKhachHang;
         private System.Windows.Forms.Button btnPhong;
@@ -394,6 +426,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBoxView;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnQuanLiHoaDon;
     }
 }
 

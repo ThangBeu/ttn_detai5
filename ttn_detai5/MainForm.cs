@@ -55,5 +55,40 @@ namespace ttn_detai5
             FormQuanLiNhanVien f = new FormQuanLiNhanVien();
             AddForm(f);
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin f = new FormLogin();
+            f.Show();
+        }
+
+        private void init(object sender, EventArgs e)
+        {
+            btnNhanVienQuanLy.Enabled = false;
+            btnQuanLiHoaDon.Enabled = false;
+            txtHoTen.Text = FormLogin.ten;
+            txtSoDienThoai.Text = FormLogin.phone;
+            txtNgaySinh.Text = FormLogin.ngaySinh;
+            if (FormLogin.quyen.Equals("1"))
+            {
+                txtViTri.Text = "Quản Lý";
+                btnNhanVienQuanLy.Enabled = true;
+                btnQuanLiHoaDon.Enabled = true;
+            }
+            else
+            {
+                txtViTri.Text = "Nhân Viên";
+            }
+
+            this.IsMdiContainer = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBoxView.Controls.Clear();
+            FormQuanLiHoaDon f = new FormQuanLiHoaDon();
+            AddForm(f);
+        }
     }
 }

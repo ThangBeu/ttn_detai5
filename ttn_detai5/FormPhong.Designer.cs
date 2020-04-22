@@ -44,6 +44,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearchKH = new System.Windows.Forms.Button();
+            this.txtSearchKH = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 22);
+            this.label1.Location = new System.Drawing.Point(28, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 2;
@@ -85,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 292);
+            this.label2.Location = new System.Drawing.Point(12, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 17);
             this.label2.TabIndex = 3;
@@ -200,11 +204,57 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "DatagridView chứa mã phòng mã đồ dùng tên đồ dùng số lượng";
             // 
+            // btnSearchKH
+            // 
+            this.btnSearchKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSearchKH.Location = new System.Drawing.Point(520, 10);
+            this.btnSearchKH.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchKH.Name = "btnSearchKH";
+            this.btnSearchKH.Size = new System.Drawing.Size(176, 37);
+            this.btnSearchKH.TabIndex = 78;
+            this.btnSearchKH.Text = "Search";
+            this.btnSearchKH.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchKH
+            // 
+            this.txtSearchKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtSearchKH.Location = new System.Drawing.Point(220, 15);
+            this.txtSearchKH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchKH.Name = "txtSearchKH";
+            this.txtSearchKH.Size = new System.Drawing.Size(292, 27);
+            this.txtSearchKH.TabIndex = 77;
+            this.txtSearchKH.Text = "search thông tin phòng";
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button6.Location = new System.Drawing.Point(520, 279);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(176, 37);
+            this.button6.TabIndex = 80;
+            this.button6.Text = "Search";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textBox1.Location = new System.Drawing.Point(220, 284);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(292, 27);
+            this.textBox1.TabIndex = 79;
+            this.textBox1.Text = "search Vật Dụng";
+            // 
             // FormPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 585);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSearchKH);
+            this.Controls.Add(this.txtSearchKH);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -252,5 +302,9 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSearchKH;
+        private System.Windows.Forms.TextBox txtSearchKH;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
