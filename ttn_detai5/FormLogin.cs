@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TTNhom;
+using ttn_detai5;
 
 namespace ttn_detai5
 {
