@@ -49,13 +49,14 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnSearchQLNV = new System.Windows.Forms.Button();
             this.txtSearchQLNV = new System.Windows.Forms.TextBox();
             this.gridView2 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxColumn = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             this.btnXoaQLNV.TabIndex = 116;
             this.btnXoaQLNV.Text = "Xoá";
             this.btnXoaQLNV.UseVisualStyleBackColor = false;
+            this.btnXoaQLNV.Click += new System.EventHandler(this.BtnXoaQLNV_Click);
             // 
             // btnSuaQLNV
             // 
@@ -81,6 +83,7 @@
             this.btnSuaQLNV.TabIndex = 115;
             this.btnSuaQLNV.Text = "Sửa";
             this.btnSuaQLNV.UseVisualStyleBackColor = false;
+            this.btnSuaQLNV.Click += new System.EventHandler(this.BtnSuaQLNV_Click);
             // 
             // btnThemQLNV
             // 
@@ -270,23 +273,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(107, 63);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePicker1.TabIndex = 117;
+            // 
             // btnSearchQLNV
             // 
             this.btnSearchQLNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSearchQLNV.Location = new System.Drawing.Point(409, 56);
+            this.btnSearchQLNV.Location = new System.Drawing.Point(583, 56);
             this.btnSearchQLNV.Name = "btnSearchQLNV";
             this.btnSearchQLNV.Size = new System.Drawing.Size(132, 30);
             this.btnSearchQLNV.TabIndex = 74;
             this.btnSearchQLNV.Text = "Search";
             this.btnSearchQLNV.UseVisualStyleBackColor = true;
+            this.btnSearchQLNV.Visible = false;
             // 
             // txtSearchQLNV
             // 
             this.txtSearchQLNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtSearchQLNV.Location = new System.Drawing.Point(26, 60);
+            this.txtSearchQLNV.Location = new System.Drawing.Point(113, 59);
             this.txtSearchQLNV.Name = "txtSearchQLNV";
             this.txtSearchQLNV.Size = new System.Drawing.Size(220, 23);
             this.txtSearchQLNV.TabIndex = 73;
+            this.txtSearchQLNV.TextChanged += new System.EventHandler(this.TxtSearchQLNV_TextChanged);
             // 
             // gridView2
             // 
@@ -339,23 +351,27 @@
             "Địa Chỉ",
             "SĐT",
             "Tài Khoản"});
-            this.comboBoxColumn.Location = new System.Drawing.Point(252, 60);
+            this.comboBoxColumn.Location = new System.Drawing.Point(339, 59);
             this.comboBoxColumn.Name = "comboBoxColumn";
             this.comboBoxColumn.Size = new System.Drawing.Size(151, 25);
             this.comboBoxColumn.TabIndex = 78;
             // 
-            // dateTimePicker1
+            // label3
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(107, 63);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
-            this.dateTimePicker1.TabIndex = 117;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(27, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "Tìm Kiếm";
             // 
             // FormQuanLiNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 475);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxColumn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -406,5 +422,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxColumn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label3;
     }
 }

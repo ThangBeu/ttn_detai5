@@ -130,5 +130,82 @@ namespace ttn_detai5
                 }
             }
         }
+
+        private void BtnSuaQLNV_Click(object sender, EventArgs e)
+        {
+            if (CheckThieuThongTin() == false)
+            {
+                
+                
+                 string queryUpdate = "UPDATE dbo.NHANVIEN SET TenNV = N'"+ten+"',NgaySinh = '"+ngaySinh+"',GioiTinh = '"+gioiTinh+"',DiaChi= N'"+diaChi+"', SDT = '"+sdt+"', Luong = '"+luong+"'" +
+                        " , TaiKhoan = '"+taiKhoan+"', MatKhau = '"+matKhau+"', Quyen = '"+quyen+"' WHERE MaNV = '"+manv+"' ";
+                 GetData(queryUpdate, gridView2, table);
+                 GetData("select * from NHANVIEN", gridView2, table);
+                 MessageBox.Show("DONE");
+                
+            }
+        }
+
+        private void BtnXoaQLNV_Click(object sender, EventArgs e)
+        {
+            if (CheckThieuThongTin() == false)
+            {
+                table = new DataTable();
+                string queryDelete = "delete NHANVIEN where TaiKhoan = N'" + taiKhoan + "' ";
+                GetData(queryDelete, gridView2, table);
+                GetData("select * from NHANVIEN", gridView2, table);
+                MessageBox.Show("DONE");
+            }
+        }
+
+        private void TxtSearchQLNV_TextChanged(object sender, EventArgs e)
+        {
+            table = new DataTable();
+            string key = comboBoxColumn.Text;
+            string keySearch = txtSearchQLNV.Text;
+            switch (key)
+            {
+                case ("Mã Nhân Viên"):
+                    {
+                        GetData("select * from NhanVien where (MaNV like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("Tên Nhân Viên"):
+                    {
+                        GetData("select * from NhanVien where (TenNV like N'%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("Ngày Sinh"):
+                    {
+                        GetData("select * from NhanVien where (NgaySinh like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("Giới Tính"):
+                    {
+                        GetData("select * from NhanVien where (GioiTinh like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("Địa Chỉ"):
+                    {
+                        GetData("select * from NhanVien where (DiaChi like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("SĐT"):
+                    {
+                        GetData("select * from NhanVien where (SDT like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+                case ("Tài Khoản"):
+                    {
+                        GetData("select * from NhanVien where (TaiKhoan like '%" + keySearch + "%')", gridView2, table);
+                        break;
+                    }
+
+            }
+            if (keySearch == "")
+            {
+                GetData("select * from NHANVIEN", gridView2, table);
+            }
+        }
     }
 }
