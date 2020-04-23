@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewChiTietPhong = new System.Windows.Forms.DataGridView();
             this.labelTotalRoomPrice = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,9 +51,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.dataGridDichVu = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelTotalDV = new System.Windows.Forms.Label();
+            this.labelTotalRoom = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,13 +70,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chonPhongChiTietBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.chonPhongChiTietBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewChiTietPhong = new System.Windows.Forms.DataGridView();
-            this.btnOK = new System.Windows.Forms.Button();
             this.chonPhongChiTietBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.chonPhongChiTietBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.chonPhongChiTietBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.chonPhongChiTietBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChonPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -82,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietDichVu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource2)).BeginInit();
@@ -118,15 +118,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN";
             // 
+            // dataGridViewChiTietPhong
+            // 
+            this.dataGridViewChiTietPhong.AllowUserToAddRows = false;
+            this.dataGridViewChiTietPhong.AllowUserToDeleteRows = false;
+            this.dataGridViewChiTietPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewChiTietPhong.Location = new System.Drawing.Point(10, 269);
+            this.dataGridViewChiTietPhong.Name = "dataGridViewChiTietPhong";
+            this.dataGridViewChiTietPhong.ReadOnly = true;
+            this.dataGridViewChiTietPhong.Size = new System.Drawing.Size(398, 110);
+            this.dataGridViewChiTietPhong.TabIndex = 35;
+            this.dataGridViewChiTietPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietPhong_CellClick);
+            // 
             // labelTotalRoomPrice
             // 
             this.labelTotalRoomPrice.AutoSize = true;
             this.labelTotalRoomPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalRoomPrice.Location = new System.Drawing.Point(220, 472);
             this.labelTotalRoomPrice.Name = "labelTotalRoomPrice";
-            this.labelTotalRoomPrice.Size = new System.Drawing.Size(60, 17);
+            this.labelTotalRoomPrice.Size = new System.Drawing.Size(16, 17);
             this.labelTotalRoomPrice.TabIndex = 34;
-            this.labelTotalRoomPrice.Text = "labelGiá";
+            this.labelTotalRoomPrice.Text = "0";
             // 
             // label8
             // 
@@ -314,9 +326,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnOK);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.labelTotal);
+            this.groupBox2.Controls.Add(this.labelTotalDV);
+            this.groupBox2.Controls.Add(this.labelTotalRoom);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label4);
@@ -339,59 +351,71 @@
             this.groupBox2.Size = new System.Drawing.Size(416, 650);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
             // 
-            // label20
+            // btnOK
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(175, 543);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 13);
-            this.label20.TabIndex = 48;
-            this.label20.Text = "Tổng tiền:";
+            this.btnOK.Location = new System.Drawing.Point(203, 309);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 49;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
-            // label19
+            // labelTotal
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(166, 501);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(99, 13);
-            this.label19.TabIndex = 47;
-            this.label19.Text = "Thành tiền dịch vụ:";
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(175, 536);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(13, 13);
+            this.labelTotal.TabIndex = 48;
+            this.labelTotal.Text = "0";
             // 
-            // label15
+            // labelTotalDV
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(166, 454);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 13);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "Thành tiền phòng:";
+            this.labelTotalDV.AutoSize = true;
+            this.labelTotalDV.Location = new System.Drawing.Point(175, 496);
+            this.labelTotalDV.Name = "labelTotalDV";
+            this.labelTotalDV.Size = new System.Drawing.Size(13, 13);
+            this.labelTotalDV.TabIndex = 47;
+            this.labelTotalDV.Text = "0";
+            // 
+            // labelTotalRoom
+            // 
+            this.labelTotalRoom.AutoSize = true;
+            this.labelTotalRoom.Location = new System.Drawing.Point(175, 455);
+            this.labelTotalRoom.Name = "labelTotalRoom";
+            this.labelTotalRoom.Size = new System.Drawing.Size(13, 13);
+            this.labelTotalRoom.TabIndex = 46;
+            this.labelTotalRoom.Text = "0";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(19, 543);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(19, 536);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.Size = new System.Drawing.Size(72, 17);
             this.label14.TabIndex = 45;
             this.label14.Text = "Tổng tiền:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 501);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(19, 494);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 13);
+            this.label12.Size = new System.Drawing.Size(129, 17);
             this.label12.TabIndex = 44;
             this.label12.Text = "Thành tiền dịch vụ:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(19, 453);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
+            this.label4.Size = new System.Drawing.Size(124, 17);
             this.label4.TabIndex = 43;
             this.label4.Text = "Thành tiền phòng:";
             // 
@@ -401,9 +425,9 @@
             this.labelTotalDVPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalDVPrice.Location = new System.Drawing.Point(235, 350);
             this.labelTotalDVPrice.Name = "labelTotalDVPrice";
-            this.labelTotalDVPrice.Size = new System.Drawing.Size(60, 17);
+            this.labelTotalDVPrice.Size = new System.Drawing.Size(16, 17);
             this.labelTotalDVPrice.TabIndex = 42;
-            this.labelTotalDVPrice.Text = "labelGiá";
+            this.labelTotalDVPrice.Text = "0";
             // 
             // label13
             // 
@@ -494,28 +518,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Thanh Toán";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewChiTietPhong
-            // 
-            this.dataGridViewChiTietPhong.AllowUserToAddRows = false;
-            this.dataGridViewChiTietPhong.AllowUserToDeleteRows = false;
-            this.dataGridViewChiTietPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewChiTietPhong.Location = new System.Drawing.Point(10, 269);
-            this.dataGridViewChiTietPhong.Name = "dataGridViewChiTietPhong";
-            this.dataGridViewChiTietPhong.ReadOnly = true;
-            this.dataGridViewChiTietPhong.Size = new System.Drawing.Size(398, 110);
-            this.dataGridViewChiTietPhong.TabIndex = 35;
-            this.dataGridViewChiTietPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietPhong_CellClick);
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(203, 309);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 49;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // chonPhongChiTietBindingSource5
             // 
@@ -547,6 +550,7 @@
             this.Load += new System.EventHandler(this.FormThanhToan_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChonPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDichVu)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -555,7 +559,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietDichVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource2)).EndInit();
@@ -597,9 +600,9 @@
         private System.Windows.Forms.TextBox textBoxTenDV;
         private System.Windows.Forms.DataGridView dataGridChiTietDichVu;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelTotalDV;
+        private System.Windows.Forms.Label labelTotalRoom;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;

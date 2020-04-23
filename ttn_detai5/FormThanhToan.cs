@@ -21,7 +21,8 @@ namespace ttn_detai5
         DataTable table, table2, table3;
         string hoten, gioitinh, sdt, diachi, cmnd, maKH;
         string maPhong, TenPhong, DonGiaPhong, SoLuongPhong;
-        string maDV, TenDV, DonGiaDV, SoLuongDV;
+        string maDV, TenDV, DonGiaDV, SoLuongDV, maNV;
+        int TongTien, TongTienDV, TongTienPhong;
 
         string id = "";
         List<ChonPhong_ChiTiet> chonPhong_ChiTiets = new List<ChonPhong_ChiTiet>();
@@ -59,6 +60,9 @@ namespace ttn_detai5
                 s += int.Parse(item.ThanhTien);
             }
             labelTotalRoomPrice.Text = s.ToString();
+            labelTotalRoom.Text = s.ToString();
+            int total = Convert.ToInt32(labelTotalRoom.Text) + Convert.ToInt32(labelTotalDV.Text);
+            labelTotal.Text = total.ToString();
         }
 
         private void BtnOK_Click(object sender, EventArgs e)
@@ -98,6 +102,40 @@ namespace ttn_detai5
                 s += int.Parse(item.ThanhTien);
             }
             labelTotalDVPrice.Text = s.ToString();
+            labelTotalDV.Text = s.ToString();
+            int total = Convert.ToInt32(labelTotalRoom.Text) + Convert.ToInt32(labelTotalDV.Text);
+            labelTotal.Text = total.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            maNV = textBoxMaNV.Text;
+            maKH = comboBoxMaKH.Text;
+            TongTien = Convert.ToInt32(labelTotal.Text);
+            TongTienDV = Convert.ToInt32(labelTotalDV.Text);
+            TongTienPhong = Convert.ToInt32(labelTotalRoom.Text);
+            conn.Open();
+            table = new DataTable();
+            string queryInsert = "INSERT dbo.HOADON( MaNV ,MaKH ,TongTien ,TongTienDV ,TongTienPhong) OUTPUT INSERTED.MaHD VALUES " +
+                "  ( " + maNV + " ," + maKH + " ," + TongTien + " ," + TongTienDV + " , " + TongTienPhong + " )";
+            cmd = new SqlCommand(queryInsert, conn);
+            Int32 MaHD = (Int32)cmd.ExecuteScalar();
+            cmd.CommandType = CommandType.Text;
+            foreach (ChonPhong_ChiTiet item in chonPhong_ChiTiets)
+            {
+                string queryInsertPhong = "INSERT dbo.HOADON_Phong( MaP ,MaHD ,NgayDen ,NgayDi)VALUES" +
+                "  ( " + item.MaPhong + ", "+MaHD+" ,'" + item.NgayKhachDen + "' ,'" + item.NgayKhachDi + "' )";
+                cmd = new SqlCommand(queryInsertPhong, conn);
+                cmd.ExecuteNonQuery();
+            }
+            foreach (ChonDichVu_ChiTiet item in chonDichVu_ChiTiets)
+            {
+                string queryInsertPhong = "INSERT dbo.HOADON_DichVu( MaHD ,MaDV ,SoLuong)VALUES" +
+                "  ( " + MaHD + ", " + item.MaDV + " , " + item.SoLuong + " )";
+                cmd = new SqlCommand(queryInsertPhong, conn);
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Thêm thành công");
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -138,8 +176,7 @@ namespace ttn_detai5
                 }
             }
         }
-
-        string fromdate, todate;
+        
 
         
         private void dataGridChonPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -148,18 +185,8 @@ namespace ttn_detai5
             {
                 int index = e.RowIndex;
                 DataGridViewRow selectRow = dataGridChonPhong.Rows[index];
-                fromdate = System.DateTime.Today.ToString("dd-MM-yyyy");
-                todate = System.DateTime.Today.ToString("dd-MM-yyyy");
 
                 string maPhong = selectRow.Cells[0].Value.ToString();
-                //this.dataGridViewChiTietPhong.Rows.Add(
-                //    selectRow.Cells[0].Value.ToString(),
-                //    selectRow.Cells[1].Value.ToString(),
-                //    selectRow.Cells[2].Value.ToString(),
-                //    fromdate,
-                //    todate,
-                //    selectRow.Cells[2].Value.ToString())
-                //    ;
                 int temp = 0;
                 DateTime d1 = DateTime.Now;
                 foreach (ChonPhong_ChiTiet item in chonPhong_ChiTiets)
@@ -215,10 +242,6 @@ namespace ttn_detai5
 
             }
             dataGridViewChiTietPhong.ClearSelection();
-
-
-
-
         }
 
         private void dataGridDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -228,13 +251,6 @@ namespace ttn_detai5
                 int index = e.RowIndex;
                 DataGridViewRow selectRow = dataGridDichVu.Rows[index];
                 string maDV = selectRow.Cells[0].Value.ToString();
-                //this.dataGridChiTietDichVu.Rows.Add(
-                //    selectRow.Cells[0].Value.ToString(),
-                //    selectRow.Cells[1].Value.ToString(),
-                //    selectRow.Cells[2].Value.ToString(),
-                //    0)
-                //    ;
-
                 int temp = 0;
                 foreach (ChonDichVu_ChiTiet item in chonDichVu_ChiTiets)
                 {
@@ -265,8 +281,6 @@ namespace ttn_detai5
                 int index = e.RowIndex;
                 DataGridViewRow selectRow = dataGridChiTietDichVu.Rows[index];
                 textBoxTenDV.Text = selectRow.Cells[1].Value.ToString();
-                //numericUpDownSLDV.Value = Convert.ToDecimal(selectRow.Cells[3].Value);
-
                 id = selectRow.Cells[0].Value.ToString();
                 numericUpDownSLDV.Value = int.Parse(selectRow.Cells[3].Value.ToString());
             }
@@ -308,29 +322,10 @@ namespace ttn_detai5
             dateTimePickerDen.CustomFormat = "dd-MM-yyyy";
             dateTimePickerDi.Format = DateTimePickerFormat.Custom;
             dateTimePickerDi.CustomFormat = "dd-MM-yyyy";
-            
-
-
-
             table2 = new DataTable();
             GetData("select * from PHONG", dataGridChonPhong, table2);
             table3 = new DataTable();
             GetData("select * from DICHVU", dataGridDichVu, table3);
-
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Mã phòng");
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Tên Phòng");
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Đơn Giá");
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Ngày đến");
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Ngày đi");
-            //dataGridViewChiTietPhong.Columns.Add("Column", "Thành tiền");
-
-            //dataGridChiTietDichVu.Columns.Add("Column", "Mã dịch vụ");
-            //dataGridChiTietDichVu.Columns.Add("Column", "Tên dịch vụ");
-            //dataGridChiTietDichVu.Columns.Add("Column", "Đơn giá");
-            //dataGridChiTietDichVu.Columns.Add("Column", "Số lượng");
-            //dataGridChiTietDichVu.Columns.Add("Column", "Thành tiền");
-
-            
         }
 
         private void GetData(string query, DataGridView grid, DataTable table)
