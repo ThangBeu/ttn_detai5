@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelTotalRoomPrice = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePickerDen = new System.Windows.Forms.DateTimePicker();
             this.textBoxTenPhong = new System.Windows.Forms.TextBox();
-            this.dataGridChiTietPhong = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxMaKH = new System.Windows.Forms.ComboBox();
@@ -66,17 +66,32 @@
             this.dataGridChiTietDichVu = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.chonPhongChiTietBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.chonPhongChiTietBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewChiTietPhong = new System.Windows.Forms.DataGridView();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.chonPhongChiTietBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.chonPhongChiTietBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.chonPhongChiTietBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.chonPhongChiTietBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChonPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSLDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietDichVu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridViewChiTietPhong);
             this.groupBox1.Controls.Add(this.labelTotalRoomPrice);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.button3);
@@ -85,7 +100,6 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePickerDen);
             this.groupBox1.Controls.Add(this.textBoxTenPhong);
-            this.groupBox1.Controls.Add(this.dataGridChiTietPhong);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.comboBoxMaKH);
@@ -132,6 +146,7 @@
             this.button3.TabIndex = 32;
             this.button3.Text = "xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button2
             // 
@@ -141,6 +156,7 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "xác nhận";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // dateTimePickerDi
             // 
@@ -149,6 +165,7 @@
             this.dateTimePickerDi.Name = "dateTimePickerDi";
             this.dateTimePickerDi.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerDi.TabIndex = 30;
+            this.dateTimePickerDi.ValueChanged += new System.EventHandler(this.DateTimePickerDi_ValueChanged);
             // 
             // label7
             // 
@@ -167,6 +184,7 @@
             this.dateTimePickerDen.Name = "dateTimePickerDen";
             this.dateTimePickerDen.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerDen.TabIndex = 26;
+            this.dateTimePickerDen.ValueChanged += new System.EventHandler(this.DateTimePickerDen_ValueChanged);
             // 
             // textBoxTenPhong
             // 
@@ -176,18 +194,6 @@
             this.textBoxTenPhong.Name = "textBoxTenPhong";
             this.textBoxTenPhong.Size = new System.Drawing.Size(332, 20);
             this.textBoxTenPhong.TabIndex = 28;
-            // 
-            // dataGridChiTietPhong
-            // 
-            this.dataGridChiTietPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridChiTietPhong.Location = new System.Drawing.Point(8, 284);
-            this.dataGridChiTietPhong.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridChiTietPhong.Name = "dataGridChiTietPhong";
-            this.dataGridChiTietPhong.RowHeadersWidth = 51;
-            this.dataGridChiTietPhong.RowTemplate.Height = 24;
-            this.dataGridChiTietPhong.Size = new System.Drawing.Size(399, 101);
-            this.dataGridChiTietPhong.TabIndex = 11;
-            this.dataGridChiTietPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridChiTietPhong_CellClick);
             // 
             // label6
             // 
@@ -238,10 +244,13 @@
             // 
             // dataGridChonPhong
             // 
+            this.dataGridChonPhong.AllowUserToAddRows = false;
+            this.dataGridChonPhong.AllowUserToDeleteRows = false;
             this.dataGridChonPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridChonPhong.Location = new System.Drawing.Point(8, 162);
+            this.dataGridChonPhong.Location = new System.Drawing.Point(10, 163);
             this.dataGridChonPhong.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridChonPhong.Name = "dataGridChonPhong";
+            this.dataGridChonPhong.ReadOnly = true;
             this.dataGridChonPhong.RowHeadersWidth = 51;
             this.dataGridChonPhong.RowTemplate.Height = 24;
             this.dataGridChonPhong.Size = new System.Drawing.Size(399, 101);
@@ -289,10 +298,13 @@
             // 
             // dataGridDichVu
             // 
+            this.dataGridDichVu.AllowUserToAddRows = false;
+            this.dataGridDichVu.AllowUserToDeleteRows = false;
             this.dataGridDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDichVu.Location = new System.Drawing.Point(10, 47);
             this.dataGridDichVu.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridDichVu.Name = "dataGridDichVu";
+            this.dataGridDichVu.ReadOnly = true;
             this.dataGridDichVu.RowHeadersWidth = 51;
             this.dataGridDichVu.RowTemplate.Height = 24;
             this.dataGridDichVu.Size = new System.Drawing.Size(399, 96);
@@ -301,6 +313,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnOK);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label15);
@@ -410,6 +423,7 @@
             this.button4.TabIndex = 40;
             this.button4.Text = "xóa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button5
             // 
@@ -419,6 +433,7 @@
             this.button5.TabIndex = 39;
             this.button5.Text = "xác nhận";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // numericUpDownSLDV
             // 
@@ -447,10 +462,13 @@
             // 
             // dataGridChiTietDichVu
             // 
+            this.dataGridChiTietDichVu.AllowUserToAddRows = false;
+            this.dataGridChiTietDichVu.AllowUserToDeleteRows = false;
             this.dataGridChiTietDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridChiTietDichVu.Location = new System.Drawing.Point(10, 163);
             this.dataGridChiTietDichVu.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridChiTietDichVu.Name = "dataGridChiTietDichVu";
+            this.dataGridChiTietDichVu.ReadOnly = true;
             this.dataGridChiTietDichVu.RowHeadersWidth = 51;
             this.dataGridChiTietDichVu.RowTemplate.Height = 24;
             this.dataGridChiTietDichVu.Size = new System.Drawing.Size(399, 101);
@@ -477,6 +495,44 @@
             this.button1.Text = "Thanh Toán";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewChiTietPhong
+            // 
+            this.dataGridViewChiTietPhong.AllowUserToAddRows = false;
+            this.dataGridViewChiTietPhong.AllowUserToDeleteRows = false;
+            this.dataGridViewChiTietPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewChiTietPhong.Location = new System.Drawing.Point(10, 269);
+            this.dataGridViewChiTietPhong.Name = "dataGridViewChiTietPhong";
+            this.dataGridViewChiTietPhong.ReadOnly = true;
+            this.dataGridViewChiTietPhong.Size = new System.Drawing.Size(398, 110);
+            this.dataGridViewChiTietPhong.TabIndex = 35;
+            this.dataGridViewChiTietPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietPhong_CellClick);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(203, 309);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 49;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
+            // 
+            // chonPhongChiTietBindingSource5
+            // 
+            this.chonPhongChiTietBindingSource5.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
+            // 
+            // chonPhongChiTietBindingSource4
+            // 
+            this.chonPhongChiTietBindingSource4.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
+            // 
+            // chonPhongChiTietBindingSource2
+            // 
+            this.chonPhongChiTietBindingSource2.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
+            // 
+            // chonPhongChiTietBindingSource3
+            // 
+            this.chonPhongChiTietBindingSource3.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
+            // 
             // FormThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,13 +547,19 @@
             this.Load += new System.EventHandler(this.FormThanhToan_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChonPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDichVu)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSLDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridChiTietDichVu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chonPhongChiTietBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -526,7 +588,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePickerDi;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridChiTietPhong;
         private System.Windows.Forms.Label labelTotalDVPrice;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button4;
@@ -542,5 +603,14 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongTienDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource2;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource4;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource3;
+        private System.Windows.Forms.BindingSource chonPhongChiTietBindingSource5;
+        private System.Windows.Forms.DataGridView dataGridViewChiTietPhong;
+        private System.Windows.Forms.Button btnOK;
     }
 }
