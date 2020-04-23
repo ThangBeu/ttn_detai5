@@ -27,6 +27,7 @@ namespace ttn_detai5
         public static string phone;
         public static string quyen;
         public static string TaiKhoan;
+        public static string maNV;
         public FormLogin()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace ttn_detai5
                 adt = new SqlDataAdapter(query, conn);
                 DataTable table = new DataTable();
                 adt.Fill(table);
-
+                maNV = table.Rows[0][0].ToString();
                 ten = table.Rows[0][1].ToString();
                 ngaySinh = table.Rows[0][2].ToString();
                 phone = table.Rows[0][5].ToString();

@@ -19,47 +19,107 @@ namespace ttn_detai5
         private static SqlCommand cmd = new SqlCommand();
         DBAccess access = new DBAccess();
         DataTable table, table2, table3;
-
-        string hoten, gioitinh, sdt, diachi, cmnd;
-        public static int maNV;
+        string hoten, gioitinh, sdt, diachi, cmnd, maKH;
+        string maPhong, TenPhong, DonGiaPhong, SoLuongPhong;
+        string maDV, TenDV, DonGiaDV, SoLuongDV;
         string fromdate, todate;
 
+        private void dataGridChonPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectRow = dataGridChonPhong.Rows[index];
+            fromdate = System.DateTime.Today.ToString("dd-MM-yyyy");
+            todate = System.DateTime.Today.ToString("dd-MM-yyyy");
+           
+            this.dataGridChiTietPhong.Rows.Add(
+                selectRow.Cells[0].Value.ToString(),
+                selectRow.Cells[1].Value.ToString(),
+                selectRow.Cells[2].Value.ToString(),
+                fromdate,
+                todate,
+                selectRow.Cells[2].Value.ToString())
+                ;
+        }
+
+        private void dataGridChiTietPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectRow = dataGridChiTietPhong.Rows[index];
+            textBoxTenPhong.Text = selectRow.Cells[1].Value.ToString();
+            dateTimePickerDen.Value = Convert.ToDateTime(selectRow.Cells[3].Value.ToString());
+            dateTimePickerDi.Value = Convert.ToDateTime(selectRow.Cells[4].Value.ToString());
+        }
+
+        private void dataGridDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectRow = dataGridDichVu.Rows[index];
+
+            this.dataGridChiTietDichVu.Rows.Add(
+                selectRow.Cells[0].Value.ToString(),
+                selectRow.Cells[1].Value.ToString(),
+                selectRow.Cells[2].Value.ToString(),
+                0)
+                ;
+        }
+
+        private void dataGridChiTietDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectRow = dataGridChiTietDichVu.Rows[index];
+            textBoxTenDV.Text = selectRow.Cells[1].Value.ToString();
+            numericUpDownSLDV.Value = Convert.ToDecimal(selectRow.Cells[3].Value);
+        }
+
+        private void addComboBox(SqlConnection conn, SqlCommand cmd, List<string> list, string tenCot, string tenTable, ComboBox cb)
+        {
+            conn.Open();
+            cmd = new SqlCommand("Select " + tenCot + " FROM " + tenTable, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                list.Add(dr.GetInt32(0).ToString());
+            }
+            cb.DataSource = list;
+            conn.Close();
+
+        }
 
         public FormThanhToan()
         {
             InitializeComponent();
-            txtTenNV.Text = FormLogin.ten.ToString();
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "yyyy-MM-dd";
-
-            fromdate = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            todate = dateTimePicker2.Value.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            innit();
         }
 
-        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        public void innit()
         {
-            try
-            {
-                int index = e.RowIndex;
-                DataGridViewRow selectRow = dataGridView1.Rows[index];
+            List<string> list = new List<string>();
+            addComboBox(conn, cmd, list, "MaKH", "KHACHANG", comboBoxMaKH);
 
-                maNV = int.Parse(selectRow.Cells[0].Value.ToString());
-                hoten = selectRow.Cells[1].Value.ToString();
-                gioitinh = selectRow.Cells[2].Value.ToString();
-                sdt = selectRow.Cells[3].Value.ToString();
-                diachi = selectRow.Cells[4].Value.ToString();
-                cmnd = selectRow.Cells[5].Value.ToString();
-                txtTenKH.Text = hoten;
-                txtSdtKH.Text = sdt;
-                txtDchi.Text = diachi;
-            }
-            catch
-            {
+            textBoxMaNV.Text = FormLogin.maNV.ToString();
+            dateTimePickerDen.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDen.CustomFormat = "dd-MM-yyyy";
+            dateTimePickerDi.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDi.CustomFormat = "dd-MM-yyyy";
 
-            }
+            table2 = new DataTable();
+            GetData("select * from PHONG", dataGridChonPhong, table2);
+            table3 = new DataTable();
+            GetData("select * from DICHVU", dataGridDichVu, table3);
 
+            dataGridChiTietPhong.Columns.Add("Column", "Mã phòng");
+            dataGridChiTietPhong.Columns.Add("Column", "Tên Phòng");
+            dataGridChiTietPhong.Columns.Add("Column", "Đơn Giá");
+            dataGridChiTietPhong.Columns.Add("Column", "Ngày đến");
+            dataGridChiTietPhong.Columns.Add("Column", "Ngày đi");
+            dataGridChiTietPhong.Columns.Add("Column", "Thành tiền");
+
+            dataGridChiTietDichVu.Columns.Add("Column", "Mã dịch vụ");
+            dataGridChiTietDichVu.Columns.Add("Column", "Tên dịch vụ");
+            dataGridChiTietDichVu.Columns.Add("Column", "Đơn giá");
+            dataGridChiTietDichVu.Columns.Add("Column", "Số lượng");
+            dataGridChiTietDichVu.Columns.Add("Column", "Thành tiền");
         }
 
         private void GetData(string query, DataGridView grid, DataTable table)
@@ -73,12 +133,7 @@ namespace ttn_detai5
 
         private void FormThanhToan_Load(object sender, EventArgs e)
         {
-            table = new DataTable();
-            GetData("select * from KHACHANG", dataGridView1, table);
-            table2 = new DataTable();
-            GetData("select * from PHONG", dataGridView2, table2);
-            table3 = new DataTable();
-            GetData("select * from DICHVU", dataGridView3, table3);
+
         }
     }
 }
