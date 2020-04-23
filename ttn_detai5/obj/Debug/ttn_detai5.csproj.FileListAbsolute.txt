@@ -32,3 +32,22 @@ C:\Users\ThangBeu\Desktop\Thuc_Tap_ Nhom\ttn_detai5\ttn_detai5\obj\Debug\ttn_det
 C:\Users\ThangBeu\Desktop\Thuc_Tap_ Nhom\ttn_detai5\ttn_detai5\obj\Debug\ttn_detai5.csproj.GenerateResource.cache
 C:\Users\ThangBeu\Desktop\Thuc_Tap_ Nhom\ttn_detai5\ttn_detai5\obj\Debug\ttn_detai5.exe
 C:\Users\ThangBeu\Desktop\Thuc_Tap_ Nhom\ttn_detai5\ttn_detai5\obj\Debug\ttn_detai5.pdb
+F:\TTN_Thang\ttn_detai5\bin\Debug\ttn_detai5.exe.config
+F:\TTN_Thang\ttn_detai5\bin\Debug\ttn_detai5.exe
+F:\TTN_Thang\ttn_detai5\bin\Debug\ttn_detai5.pdb
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormKhachHang.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormLogin.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormPhong.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormQuanLiNhanVien.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormSuaPhong.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormThanhToan.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormThemDoDung.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormThemPhong.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.MainForm.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.Properties.Resources.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.csproj.GenerateResource.cache
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.csproj.CoreCompileInputs.cache
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.exe
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.pdb
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.FormQuanLiHoaDon.resources
+F:\TTN_Thang\ttn_detai5\obj\Debug\ttn_detai5.csprojAssemblyReference.cache

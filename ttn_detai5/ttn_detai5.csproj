@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChonDichVu_ChiTiet.cs" />
+    <Compile Include="ChonPhong_ChiTiet.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="FormKhachHang.cs">
       <SubType>Form</SubType>
@@ -149,6 +151,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\ChonPhong_ChiTiet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
