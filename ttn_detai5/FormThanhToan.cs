@@ -174,6 +174,7 @@ namespace ttn_detai5
                 }
 
                 RefeshSource_Phong();
+                dataGridViewChiTietPhong.ClearSelection();
             }
             catch
             {
@@ -197,6 +198,7 @@ namespace ttn_detai5
 
         private void dataGridViewChiTietPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             try
             {
                 int index = e.RowIndex;
@@ -206,14 +208,16 @@ namespace ttn_detai5
 
                 dateTimePickerDen.Value = Convert.ToDateTime(selectRow.Cells[3].Value.ToString());
                 dateTimePickerDi.Value = Convert.ToDateTime(selectRow.Cells[4].Value.ToString());
+
             }
             catch
             {
 
             }
+            dataGridViewChiTietPhong.ClearSelection();
 
 
-            
+
 
         }
 
@@ -249,18 +253,28 @@ namespace ttn_detai5
             {
 
             }
+            dataGridChiTietDichVu.ClearSelection();
+
             
         }
 
         private void dataGridChiTietDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectRow = dataGridChiTietDichVu.Rows[index];
-            textBoxTenDV.Text = selectRow.Cells[1].Value.ToString();
-            //numericUpDownSLDV.Value = Convert.ToDecimal(selectRow.Cells[3].Value);
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectRow = dataGridChiTietDichVu.Rows[index];
+                textBoxTenDV.Text = selectRow.Cells[1].Value.ToString();
+                //numericUpDownSLDV.Value = Convert.ToDecimal(selectRow.Cells[3].Value);
 
-            id = selectRow.Cells[0].Value.ToString();
-            numericUpDownSLDV.Value = int.Parse(selectRow.Cells[3].Value.ToString());
+                id = selectRow.Cells[0].Value.ToString();
+                numericUpDownSLDV.Value = int.Parse(selectRow.Cells[3].Value.ToString());
+            }
+            catch
+            {
+
+            }
+            dataGridChiTietDichVu.ClearSelection();
         }
 
         private void addComboBox(SqlConnection conn, SqlCommand cmd, List<string> list, string tenCot, string tenTable, ComboBox cb)
