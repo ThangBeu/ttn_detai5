@@ -78,6 +78,7 @@
             this.tableMain1.RowTemplate.Height = 24;
             this.tableMain1.Size = new System.Drawing.Size(542, 180);
             this.tableMain1.TabIndex = 1;
+            this.tableMain1.Visible = false;
             this.tableMain1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableMain1_CellClick);
             this.tableMain1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableMain1_CellClick);
             // 

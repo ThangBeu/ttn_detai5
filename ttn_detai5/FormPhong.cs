@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace ttn_detai5 {
     public partial class FormPhong : Form {
         DBAccess access = new DBAccess();
-        DataTable table,table1;
+        DataTable table,table1,table2;
 
         private static SqlConnection conn = new SqlConnection(DBAccess.strConn);
         private static SqlDataAdapter adt = new SqlDataAdapter();
@@ -51,6 +51,7 @@ namespace ttn_detai5 {
         }
         private void tableMain_CellClick(object sender , DataGridViewCellEventArgs e) {
             int index = e.RowIndex;
+            tableMain1.Visible = true;
             DataGridViewRow selectRow = tableMain.Rows[index];
             maPhong = int.Parse(selectRow.Cells[0].Value.ToString().Trim());
             tenPhong = selectRow.Cells[1].Value.ToString().Trim();
@@ -110,7 +111,9 @@ namespace ttn_detai5 {
         }
 
         private void buttonRefresh_Click(object sender , EventArgs e) {
+            table = new DataTable();
             GetData("select * from PHONG" , tableMain , table);
+            tableMain1.Visible = false;
         }
 
         private void btnSearchPhong_Click(object sender , EventArgs e) {
