@@ -42,14 +42,14 @@ namespace ttn_detai5
             lblMaHD.Text = mahd;
             table = new DataTable();
             table2 = new DataTable();
-            string queryChiTietPhong = "SELECT * FROM dbo.HOADON_PHONG " +
-                " WHERE MaHD = '" + mahd + "'";
+
+            string queryChiTietPhong = "SELECT HDP.MaHDP,HDP.MaHD,HDP.MaP,P.DonGiaPhong,HDP.NgayDi,HDP.NgayDen,(DATEDIFF(DAY,HDP.NgayDen,HDP.NgayDi) * P.DonGiaPhong) AS 'chi phi phong' FROM dbo.HOADON_PHONG AS HDP, dbo.PHONG AS P "
+                                + "WHERE HDP.MaP = P.MaP AND MaHD = '" + mahd + "' ";
             GetData(queryChiTietPhong, dataGridViewPhong, table);
 
-            string queryChiTietDichVu = "SELECT * FROM dbo.HOADON_DICHVU " +
-                " WHERE MaHD = '" + mahd + "'";
+            string queryChiTietDichVu = "SELECT HDDV.MaHDDV,HDDV.MaHD,HDDV.MaDV,HDDV.SoLuong,DV.DonGia, (DV.DonGia*HDDV.SoLuong) AS 'chi phi dv' FROM dbo.HOADON_DICHVU AS HDDV, dbo.DICHVU AS DV " +
+                " WHERE HDDV.MaDV = DV.MaDV AND MaHD = '" + mahd + "'";
             GetData(queryChiTietDichVu, dataGridViewDichVu, table2);
-
         }
     }
 }
