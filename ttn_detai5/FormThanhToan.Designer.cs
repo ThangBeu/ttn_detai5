@@ -522,19 +522,7 @@
             // 
             // chonPhongChiTietBindingSource5
             // 
-            this.chonPhongChiTietBindingSource5.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
-            // 
-            // chonPhongChiTietBindingSource4
-            // 
-            this.chonPhongChiTietBindingSource4.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
-            // 
-            // chonPhongChiTietBindingSource2
-            // 
-            this.chonPhongChiTietBindingSource2.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
-            // 
-            // chonPhongChiTietBindingSource3
-            // 
-            this.chonPhongChiTietBindingSource3.DataSource = typeof(ttn_detai5.ChonPhong_ChiTiet);
+            
             // 
             // FormThanhToan
             // 

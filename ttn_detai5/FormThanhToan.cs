@@ -163,7 +163,9 @@ namespace ttn_detai5
                     item.NgayKhachDi = Convert.ToDateTime(dateTimePickerDi.Value.ToString());
                     
                     TimeSpan t = item.NgayKhachDi - item.NgayKhachDen;
-                    int diff = (int)t.TotalDays + 1;
+                    
+                    int diff = (int)t.Days + 1;
+                    MessageBox.Show(t.Days.ToString());
                     if (diff > 0)
                     {
                         item.ThanhTien = (diff * int.Parse(item.DonGia)).ToString();
@@ -315,7 +317,7 @@ namespace ttn_detai5
         public void innit()
         {
             List<string> list = new List<string>();
-            addComboBox(conn, cmd, list, "MaKH", "KHACHANG", comboBoxMaKH);
+            addComboBox(conn, cmd, list, "MaKH", "KHACHHANG", comboBoxMaKH);
 
             textBoxMaNV.Text = FormLogin.maNV.ToString();
             dateTimePickerDen.Format = DateTimePickerFormat.Custom;
