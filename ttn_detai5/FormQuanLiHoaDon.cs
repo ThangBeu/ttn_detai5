@@ -20,6 +20,41 @@ namespace ttn_detai5
         DBAccess access = new DBAccess();
         DataTable table, table2, table3;
 
+        string manv, makh, tongtien, tongtiendv, tongtienphong;
+        public static string mahd;
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            if (mahd == null)
+            {
+                MessageBox.Show("Vui lòng chọn 'Mã hóa đơn' để thực hiện xem Chi Tiết thông tin");
+            }
+            else
+            {
+                FormChiTietHoaDon f = new FormChiTietHoaDon();
+                f.Show();
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (mahd == null)
+            {
+                MessageBox.Show("Vui lòng chọn 'Mã Hóa đơn' để thực hiện Xóa");
+            }
+            else
+            {
+                table = new DataTable();
+                string queryDelete = "delete dbo.HOADON where MaHD = N'" + mahd + "' ";
+                string queryDelete1 = "delete dbo.HOADON_PHONG where MaHD = N'" + mahd + "' ";
+                string queryDelete2 = "delete dbo.HOADON_DICHVU where MaHD = N'" + mahd + "' ";
+                GetData(queryDelete1, dataGridViewHD, table);
+                GetData(queryDelete2, dataGridViewHD, table);
+                GetData(queryDelete, dataGridViewHD, table);
+                GetData("select * from dbo.HOADON", dataGridViewHD, table);
+                MessageBox.Show("Done");
+            }
+        }
+
         private void FormQuanLiHoaDon_Load(object sender, EventArgs e)
         {
             table = new DataTable();
@@ -46,6 +81,9 @@ namespace ttn_detai5
         {
             InitializeComponent();
         }
+
+        
+
         private void GetData(string query, DataGridView grid, DataTable table)
         {
             access.createConn();
@@ -55,5 +93,20 @@ namespace ttn_detai5
             conn.Close();
         }
 
+        private void dataGridViewHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int index = e.RowIndex;
+            DataGridViewRow selectRow = dataGridViewHD.Rows[index];
+            mahd = selectRow.Cells[0].Value.ToString();
+            manv = selectRow.Cells[1].Value.ToString();
+            makh = selectRow.Cells[2].Value.ToString();
+            tongtien = selectRow.Cells[3].Value.ToString();
+            tongtiendv = selectRow.Cells[4].Value.ToString();
+            tongtienphong = selectRow.Cells[5].Value.ToString();
+
+
+            //cbID_teacher.Text = teacher_id;
+        }
     }
 }
