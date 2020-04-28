@@ -29,12 +29,12 @@ namespace ttn_detai5 {
 
         private void buttonThemPhong_Click(object sender , EventArgs e) {
             FormThemPhong form = new FormThemPhong();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void buttonThemVD_Click(object sender , EventArgs e) {
             FormThemDoDung form = new FormThemDoDung();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void GetData(string query , DataGridView grid , DataTable table) {
@@ -92,11 +92,7 @@ namespace ttn_detai5 {
             else {
                 table = new DataTable();
                 string query1 = "DELETE dbo.CHITIETPHONG WHERE MaDD = " + maDoDung;
-                string query2 = "DELETE dbo.DODUNG WHERE MaDD = " + maDoDung;
-                string query3 = "select * from DODUNG_VIEW where MaP=" + maPhong;
                 GetData(query1 , tableMain1 , table);
-                GetData(query2 , tableMain1 , table);
-                GetData(query3 , tableMain1 , table);
                 MessageBox.Show("Done");
 
             }

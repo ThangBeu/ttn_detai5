@@ -42,8 +42,11 @@ namespace ttn_detai5
 
       
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
             int index = e.RowIndex;
             DataGridViewRow selectRow = dataGridView1.Rows[index];
             ten = selectRow.Cells[1].Value.ToString();
@@ -52,15 +55,23 @@ namespace ttn_detai5
             sdt = selectRow.Cells[3].Value.ToString();
             soCMND = selectRow.Cells[5].Value.ToString();
             maKH = int.Parse(selectRow.Cells[0].Value.ToString());
-
+              
             txtTen.Text = ten;
             txtDiaChi.Text = diaChi;
             txtSDT.Text = sdt;
             txtSoCMND.Text = soCMND;
-
+            txtMaKH.Text = maKH.ToString();
+                    
             if (gioiTinh.Equals("True")) radioButtonNam.Checked = true;
             else radioButtonNu.Checked = true;
+            }
+            catch
+            {
+
+            }
+            
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             ten = txtTen.Text.Trim();
@@ -84,7 +95,7 @@ namespace ttn_detai5
             {
                 conn.Open();
                 table = new DataTable();
-                string queryInsert = "INSERT dbo.KHACHANG( HoTen, GioiTinh, SDT, DiaChi, SoCMND )VALUES" +
+                string queryInsert = "INSERT dbo.KHACHHANG( HoTen, GioiTinh, SDT, DiaChi, SoCMND )VALUES" +
                     "  ( N'"+ten+"','"+gioiTinh+"','"+sdt+"',N'"+diaChi+"','"+soCMND+"')";
                 cmd = new SqlCommand(queryInsert, conn);
                 cmd.CommandType = CommandType.Text;
@@ -93,7 +104,7 @@ namespace ttn_detai5
                 {
                     MessageBox.Show("Them Khach Hang Thanh Cong");
                     conn.Close();
-                    string query = "SELECT * FROM dbo.KHACHANG";
+                    string query = "SELECT * FROM dbo.KHACHHANG";
                     GetData(query, dataGridView1, table);
                 }
             }
@@ -123,7 +134,7 @@ namespace ttn_detai5
                 conn.Close();
                 conn.Open();
                 table = new DataTable();
-                string queryInsert = "UPDATE dbo.KHACHANG SET HoTen = N'"+ten+"', GioiTinh = '"+gioiTinh+"', SDT = '"+sdt+"', DiaChi = N'"+diaChi+"', SoCMND = '"+soCMND+"'" +
+                string queryInsert = "UPDATE dbo.KHACHHANG SET HoTen = N'"+ten+"', GioiTinh = '"+gioiTinh+"', SDT = '"+sdt+"', DiaChi = N'"+diaChi+"', SoCMND = '"+soCMND+"'" +
                 "Where MaKH = '"+maKH+"'";
                 cmd = new SqlCommand(queryInsert, conn);
                 cmd.CommandType = CommandType.Text;
@@ -132,7 +143,7 @@ namespace ttn_detai5
                 {
                     MessageBox.Show("Sua Khach Hang Thanh Cong");
                     conn.Close();
-                    string query = "SELECT * FROM dbo.KHACHANG";
+                    string query = "SELECT * FROM dbo.KHACHHANG";
                     GetData(query, dataGridView1, table);
                 }
             }
@@ -147,14 +158,10 @@ namespace ttn_detai5
             {
                 table = new DataTable();
                 string query1 = "UPDATE dbo.HOADON SET MaKH = NULL WHERE MaKH = '"+maKH+"'";
-                string query2 = "UPDATE dbo.KHACHHANG_DICHVU SET MaKH = NULL WHERE MaKH = '"+maKH+"'";
-                string query3 = "UPDATE dbo.KHACHHANG_PHONG SET MaKH = NULL WHERE MaKH = '"+maKH+"'";
-                string query4 = "DELETE dbo.KHACHANG WHERE MaKH = '"+maKH+"'";
+                string query2 = "DELETE dbo.KHACHHANG WHERE MaKH = '"+maKH+"'";
                 GetData(query1, dataGridView1, table);
                 GetData(query2, dataGridView1, table);
-                GetData(query3, dataGridView1, table);
-                GetData(query4, dataGridView1, table);
-                GetData("SELECT * FROM dbo.KHACHANG", dataGridView1, table);
+                GetData("SELECT * FROM dbo.KHACHHANG", dataGridView1, table);
                 MessageBox.Show("Xóa Thành Công");
 
             }
@@ -165,7 +172,7 @@ namespace ttn_detai5
             string key = txtSearchKH.Text.Trim();
             if (key.Equals(""))
             {
-                string query = "SELECT * FROM dbo.KHACHANG";
+                string query = "SELECT * FROM dbo.KHACHHANG";
                 GetData(query, dataGridView1, table);
             }
             else
@@ -174,12 +181,12 @@ namespace ttn_detai5
                 bool check = int.TryParse(key, out a);
                 if (check == true)
                 {
-                    string query = "SELECT * FROM dbo.KHACHANG WHERE MaKH = '"+key+"' OR GioiTinh = '"+key+"' OR SDT LIKE '%"+key+"%' OR SoCMND LIKE '%"+key+"%'";
+                    string query = "SELECT * FROM dbo.KHACHHANG WHERE MaKH = '"+key+"' OR GioiTinh = '"+key+"' OR SDT LIKE '%"+key+"%' OR SoCMND LIKE '%"+key+"%'";
                     GetData(query, dataGridView1, table);
                 }
                 else
                 {
-                    string query = "SELECT * FROM dbo.KHACHANG WHERE HoTen LIKE N'%"+key+"%' OR DiaChi LIKE N'%"+key+"%'";
+                    string query = "SELECT * FROM dbo.KHACHHANG WHERE HoTen LIKE N'%"+key+"%' OR DiaChi LIKE N'%"+key+"%'";
                     GetData(query, dataGridView1, table);
                 }
 

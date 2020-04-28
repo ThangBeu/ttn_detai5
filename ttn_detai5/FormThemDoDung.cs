@@ -69,5 +69,11 @@ namespace ttn_detai5
                 MessageBox.Show("Thêm vật dụng trong phòng thành công");
             }
         }
+
+        private void numericUpDownSL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

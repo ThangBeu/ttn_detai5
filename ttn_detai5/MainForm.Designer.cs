@@ -55,6 +55,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxView = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -62,6 +63,8 @@
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBoxView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -77,18 +80,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 117);
+            this.label3.Location = new System.Drawing.Point(27, 117);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Ngày Sinh";
+            this.label3.Text = "Tuổi";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(19, 162);
+            this.label4.Location = new System.Drawing.Point(10, 162);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 17);
@@ -263,7 +266,7 @@
             this.groupBox3.Size = new System.Drawing.Size(267, 267);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Thông Tin User";
+            this.groupBox3.Text = "Thông Tin Nhân Viên";
             // 
             // label1
             // 
@@ -362,6 +365,7 @@
             // 
             // groupBoxView
             // 
+            this.groupBoxView.Controls.Add(this.pictureBox6);
             this.groupBoxView.Location = new System.Drawing.Point(292, 14);
             this.groupBoxView.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxView.Name = "groupBoxView";
@@ -371,6 +375,17 @@
             this.groupBoxView.TabStop = false;
             this.groupBoxView.Text = "VIEW";
             this.groupBoxView.Enter += new System.EventHandler(this.groupBoxView_Enter);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(964, -2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 10;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // MainForm
             // 
@@ -396,6 +411,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBoxView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,6 +445,7 @@
         private System.Windows.Forms.GroupBox groupBoxView;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnQuanLiHoaDon;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 

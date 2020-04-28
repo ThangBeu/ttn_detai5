@@ -42,39 +42,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 82);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(157, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Phòng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(118, 137);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(157, 169);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(118, 137);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(157, 169);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên Đò Dùng";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 206);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(157, 254);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số lượng";
             // 
@@ -85,9 +81,10 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(252, 266);
+            this.btnThem.Location = new System.Drawing.Point(336, 327);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(103, 41);
+            this.btnThem.Size = new System.Drawing.Size(137, 50);
             this.btnThem.TabIndex = 125;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -95,32 +92,36 @@
             // 
             // numericUpDownSL
             // 
-            this.numericUpDownSL.Location = new System.Drawing.Point(263, 199);
+            this.numericUpDownSL.Location = new System.Drawing.Point(351, 245);
+            this.numericUpDownSL.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownSL.Name = "numericUpDownSL";
-            this.numericUpDownSL.Size = new System.Drawing.Size(92, 20);
+            this.numericUpDownSL.Size = new System.Drawing.Size(123, 22);
             this.numericUpDownSL.TabIndex = 127;
+            this.numericUpDownSL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDownSL_KeyPress);
             // 
             // comboBoxMaPhong
             // 
             this.comboBoxMaPhong.FormattingEnabled = true;
-            this.comboBoxMaPhong.Location = new System.Drawing.Point(263, 79);
+            this.comboBoxMaPhong.Location = new System.Drawing.Point(351, 97);
+            this.comboBoxMaPhong.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMaPhong.Name = "comboBoxMaPhong";
-            this.comboBoxMaPhong.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxMaPhong.Size = new System.Drawing.Size(303, 24);
             this.comboBoxMaPhong.TabIndex = 128;
             // 
             // comboBoxTenDD
             // 
             this.comboBoxTenDD.FormattingEnabled = true;
-            this.comboBoxTenDD.Location = new System.Drawing.Point(263, 134);
+            this.comboBoxTenDD.Location = new System.Drawing.Point(351, 165);
+            this.comboBoxTenDD.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTenDD.Name = "comboBoxTenDD";
-            this.comboBoxTenDD.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxTenDD.Size = new System.Drawing.Size(303, 24);
             this.comboBoxTenDD.TabIndex = 129;
             // 
             // FormThemDoDung
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comboBoxTenDD);
             this.Controls.Add(this.comboBoxMaPhong);
             this.Controls.Add(this.numericUpDownSL);
@@ -129,7 +130,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormThemDoDung";
             this.Text = "FormThemDoDung";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSL)).EndInit();

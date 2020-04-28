@@ -31,7 +31,7 @@ namespace ttn_detai5
             else
             {
                 FormChiTietHoaDon f = new FormChiTietHoaDon();
-                f.Show();
+                f.ShowDialog();
             }
         }
 

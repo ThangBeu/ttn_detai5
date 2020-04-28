@@ -69,7 +69,9 @@ namespace ttn_detai5
             btnQuanLiHoaDon.Enabled = false;
             txtHoTen.Text = FormLogin.ten;
             txtSoDienThoai.Text = FormLogin.phone;
-            txtNgaySinh.Text = FormLogin.ngaySinh;
+            TimeSpan t = DateTime.Now - Convert.ToDateTime(FormLogin.ngaySinh);
+            int tuoi = (int)t.Days / 365;
+            txtNgaySinh.Text = tuoi.ToString();
             if (FormLogin.quyen.Equals("1"))
             {
                 txtViTri.Text = "Quản Lý";
@@ -89,6 +91,16 @@ namespace ttn_detai5
             groupBoxView.Controls.Clear();
             FormQuanLiHoaDon f = new FormQuanLiHoaDon();
             AddForm(f);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng 'Phòng' cho biết thông tin của các phòng có trong khách sạn và các đồ dùng có trong phòng" +
+                "\n\nChức năng 'Khách Hàng' cho phép quản lí thông tin khách thuê phòng" +
+                "\n\nChức năng 'Quản Lí Hóa Đơn' cho phép quản lí thống kê thông tin hóa đơn và các chi tiết hóa đơn có liên quan" +
+                "\n\nChức năng 'Thanh Toán' cho phép tạo hóa đơn" +
+                "\n\nChức năng 'Quản Lí Nhân Viên' cho phép quản lí thông tin nhân viên (Thêm, Sửa, Xóa)" +
+                "\n\nThông Tin User là thông tin của nhân viên đăng nhập vào bằng tài khoản được cấp", "Help?");
         }
     }
 }

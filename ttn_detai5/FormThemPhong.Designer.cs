@@ -38,38 +38,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 111);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(57, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(98, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Phòng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 114);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(57, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Đơn Giá";
             // 
             // textBoxTen
             // 
-            this.textBoxTen.Location = new System.Drawing.Point(112, 111);
-            this.textBoxTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTen.Location = new System.Drawing.Point(180, 34);
+            this.textBoxTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTen.Name = "textBoxTen";
-            this.textBoxTen.Size = new System.Drawing.Size(110, 20);
+            this.textBoxTen.Size = new System.Drawing.Size(230, 26);
             this.textBoxTen.TabIndex = 3;
             // 
             // textBoxGia
             // 
-            this.textBoxGia.Location = new System.Drawing.Point(341, 111);
-            this.textBoxGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGia.Location = new System.Drawing.Point(180, 104);
+            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(126, 20);
+            this.textBoxGia.Size = new System.Drawing.Size(230, 26);
             this.textBoxGia.TabIndex = 4;
+            this.textBoxGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGia_KeyPress);
             // 
             // btnThem
             // 
@@ -78,9 +81,10 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(204, 271);
+            this.btnThem.Location = new System.Drawing.Point(180, 179);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(103, 41);
+            this.btnThem.Size = new System.Drawing.Size(137, 50);
             this.btnThem.TabIndex = 124;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -88,15 +92,15 @@
             // 
             // FormThemPhong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 409);
+            this.ClientSize = new System.Drawing.Size(486, 269);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.textBoxGia);
             this.Controls.Add(this.textBoxTen);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormThemPhong";
             this.Text = "FormThemPhong";
             this.ResumeLayout(false);

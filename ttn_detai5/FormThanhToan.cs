@@ -23,11 +23,33 @@ namespace ttn_detai5
         string maPhong, TenPhong, DonGiaPhong, SoLuongPhong;
         string maDV, TenDV, DonGiaDV, SoLuongDV, maNV;
         int TongTien, TongTienDV, TongTienPhong;
-
+        string variable;
         string id = "";
         List<ChonPhong_ChiTiet> chonPhong_ChiTiets = new List<ChonPhong_ChiTiet>();
         List<ChonDichVu_ChiTiet> chonDichVu_ChiTiets = new List<ChonDichVu_ChiTiet>();
+        private string query(SqlCommand sql, string colomn, string table, string dieuKien, string ndDieuKien)
+        {
+            conn.Close();
+            conn.Open();
 
+            cmd = new SqlCommand("SELECT " + colomn + " FROM " + table + " WHERE " + dieuKien + " = N'" + ndDieuKien + "'  ", conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                variable = dr.GetString(0).ToString();
+            }
+            conn.Close();
+            return variable;
+        }
+
+        private void addData()
+        {
+            maKH = cbMaKH.Text;
+            txtTen.Text = query(cmd, "HoTen", "KHACHHANG", "MaKH", maKH);
+            txtDiaChi.Text = query(cmd, "DiaChi", "KHACHHANG", "MaKH", maKH);
+            txtSDT.Text = query(cmd, "SDT", "KHACHHANG", "MaKH", maKH);
+            txtSoCMND.Text = query(cmd, "SoCMND", "KHACHHANG", "MaKH", maKH);
+        }
         private void DateTimePickerDen_ValueChanged(object sender, EventArgs e)
         {
             foreach (ChonPhong_ChiTiet item in chonPhong_ChiTiets)
@@ -37,7 +59,7 @@ namespace ttn_detai5
                     item.NgayKhachDen = Convert.ToDateTime(dateTimePickerDen.Value.ToString());
 
                     TimeSpan t = item.NgayKhachDi - item.NgayKhachDen;
-                    int diff = (int)t.TotalDays + 1;
+                    int diff = (int)t.Days + 1;
                     if (diff > 0)
                     {
                         item.ThanhTien = (diff * int.Parse(item.DonGia)).ToString();
@@ -79,6 +101,15 @@ namespace ttn_detai5
             }
         }
 
+        private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maKH = cbMaKH.Text;
+            txtTen.Text = query(cmd, "HoTen", "KHACHHANG", "MaKH", maKH);
+            txtDiaChi.Text = query(cmd, "DiaChi", "KHACHHANG", "MaKH", maKH);
+            txtSDT.Text = query(cmd, "SDT", "KHACHHANG", "MaKH", maKH);
+            txtSoCMND.Text = query(cmd, "SoCMND", "KHACHHANG", "MaKH", maKH);
+        }
+
         private void Button3_Click(object sender, EventArgs e)
         {
             if(id == "")
@@ -110,7 +141,7 @@ namespace ttn_detai5
         private void button1_Click(object sender, EventArgs e)
         {
             maNV = textBoxMaNV.Text;
-            maKH = comboBoxMaKH.Text;
+            maKH = cbMaKH.Text;
             TongTien = Convert.ToInt32(labelTotal.Text);
             TongTienDV = Convert.ToInt32(labelTotalDV.Text);
             TongTienPhong = Convert.ToInt32(labelTotalRoom.Text);
@@ -165,7 +196,7 @@ namespace ttn_detai5
                     TimeSpan t = item.NgayKhachDi - item.NgayKhachDen;
                     
                     int diff = (int)t.Days + 1;
-                    MessageBox.Show(t.Days.ToString());
+                   
                     if (diff > 0)
                     {
                         item.ThanhTien = (diff * int.Parse(item.DonGia)).ToString();
@@ -199,7 +230,7 @@ namespace ttn_detai5
                 if (temp == 0)
                 {
                     chonPhong_ChiTiets.Add(new ChonPhong_ChiTiet(selectRow.Cells[0].Value.ToString(), selectRow.Cells[1].Value.ToString(),
-                    selectRow.Cells[2].Value.ToString(), d1, d1.AddDays(+1), "0"));
+                    selectRow.Cells[2].Value.ToString(), d1, d1, "0"));
                 }
 
                 RefeshSource_Phong();
@@ -235,8 +266,8 @@ namespace ttn_detai5
                 textBoxTenPhong.Text = selectRow.Cells[1].Value.ToString();
                 id = selectRow.Cells[0].Value.ToString();
 
-                dateTimePickerDen.Value = Convert.ToDateTime(selectRow.Cells[3].Value.ToString());
-                dateTimePickerDi.Value = Convert.ToDateTime(selectRow.Cells[4].Value.ToString());
+                //dateTimePickerDen.Value = Convert.ToDateTime(selectRow.Cells[3].Value.ToString());
+                //dateTimePickerDi.Value = Convert.ToDateTime(selectRow.Cells[4].Value.ToString());
 
             }
             catch
@@ -311,13 +342,15 @@ namespace ttn_detai5
         {
             InitializeComponent();
             innit();
+            addData();
+
         }
 
 
         public void innit()
         {
             List<string> list = new List<string>();
-            addComboBox(conn, cmd, list, "MaKH", "KHACHHANG", comboBoxMaKH);
+            addComboBox(conn, cmd, list, "MaKH", "KHACHHANG", cbMaKH);
 
             textBoxMaNV.Text = FormLogin.maNV.ToString();
             dateTimePickerDen.Format = DateTimePickerFormat.Custom;

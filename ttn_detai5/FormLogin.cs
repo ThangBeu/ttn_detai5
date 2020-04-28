@@ -35,7 +35,6 @@ namespace ttn_detai5
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
         }
 
         private void signinButton_Click(object sender, EventArgs e)
@@ -71,6 +70,16 @@ namespace ttn_detai5
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Đăng Nhập với Tên Tài Khoản Và Mật Khẩu Được Câp Để Vào Hệ Thống\n\nNhan Viên Quản Lí Có Quyền Xem Và Chỉnh Sửa Thông Tin Nhân Viên Và Thống Kê Hóa Đơn", "Help?");
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
